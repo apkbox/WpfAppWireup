@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Factory.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\ISingletonModel.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\ModelWithDependencies.cs" />
     <Compile Include="Model\MyFactory.cs" />

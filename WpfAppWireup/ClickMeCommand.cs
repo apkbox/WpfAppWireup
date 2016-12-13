@@ -16,6 +16,8 @@ namespace WpfAppWireup
 
     public class ClickMeCommand : ICommand
     {
+        private readonly ModelWithDependencies model;
+
         #region Public Events
 
         public event EventHandler CanExecuteChanged;
@@ -24,14 +26,18 @@ namespace WpfAppWireup
 
         #region Public Methods and Operators
 
+        public ClickMeCommand()
+        {
+            model = Factory.Instance.GetInstance<ModelWithDependencies>();
+        }
+
         public bool CanExecute(object parameter)
         {
-            return true;
+            return model.CanIClickYou();
         }
 
         public void Execute(object parameter)
         {
-            var model = Factory.Instance.GetInstance<ModelWithDependencies>();
             model.ClickMe();
         }
 

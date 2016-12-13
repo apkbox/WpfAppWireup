@@ -1,18 +1,20 @@
 ﻿// --------------------------------------------------------------------------------
-// <copyright file="SingletonModel.cs" company="">
+// <copyright file="IModel.cs" company="">
 //   
 // </copyright>
 // <summary>
-//   The singleton model.
+//   Defines the IModel type.
 // </summary>
 // --------------------------------------------------------------------------------
 
 namespace WpfAppWireup.Model
 {
-    /// <summary>
-    /// The singleton model.
-    /// </summary>
-    internal class SingletonModel : ISingletonModel
+    public interface IModel
     {
+        #region Public Methods and Operators
+
+        void ClickMeHard();
+
+        #endregion
     }
 }

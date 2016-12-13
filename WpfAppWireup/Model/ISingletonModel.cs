@@ -1,18 +1,15 @@
 ﻿// --------------------------------------------------------------------------------
-// <copyright file="SingletonModel.cs" company="">
+// <copyright file="ISingletonModel.cs" company="">
 //   
 // </copyright>
 // <summary>
-//   The singleton model.
+//   Defines the ISingletonModel type.
 // </summary>
 // --------------------------------------------------------------------------------
 
 namespace WpfAppWireup.Model
 {
-    /// <summary>
-    /// The singleton model.
-    /// </summary>
-    internal class SingletonModel : ISingletonModel
+    public interface ISingletonModel
     {
     }
 }

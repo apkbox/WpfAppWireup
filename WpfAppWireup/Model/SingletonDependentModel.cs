@@ -1,12 +1,29 @@
+// --------------------------------------------------------------------------------
+// <copyright file="SingletonDependentModel.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   Defines the SingletonDependentModel type.
+// </summary>
+// --------------------------------------------------------------------------------
+
 namespace WpfAppWireup.Model
 {
     internal class SingletonDependentModel
     {
-        private readonly SingletonModel model;
+        #region Fields
 
-        public SingletonDependentModel(SingletonModel model)
+        private readonly ISingletonModel model;
+
+        #endregion
+
+        #region Constructors and Destructors
+
+        public SingletonDependentModel(ISingletonModel model)
         {
             this.model = model;
         }
+
+        #endregion
     }
 }

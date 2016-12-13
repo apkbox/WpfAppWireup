@@ -11,7 +11,7 @@ namespace WpfAppWireup.Model
 {
     using System.Diagnostics;
 
-    public class Model
+    internal class Model : IModel
     {
         #region Public Methods and Operators
 

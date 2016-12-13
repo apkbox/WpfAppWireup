@@ -22,23 +22,35 @@ namespace WpfAppWireup.Model
                 throw new NullReferenceException("model type is null");
             }
 
-            if (modelType.IsAssignableFrom(typeof(Model)))
+            if (modelType.IsAssignableFrom(typeof(IModel)))
             {
                 return new Model();
             }
             else if (modelType.IsAssignableFrom(typeof(ModelWithDependencies)))
             {
-                return new ModelWithDependencies(GetInstance<Model>());
+                return new ModelWithDependencies(GetInstance<IModel>());
             }
-            else if (modelType.IsAssignableFrom(typeof(SingletonModel)))
+            else if (modelType.IsAssignableFrom(typeof(ISingletonModel)))
             {
                 var s = new SingletonModel();
+
+                // All three types resolve to a single instance.
+                // As a rule you want to make your instance classes internal and
+                // use interfaces only.
+
+                // This one resolve the requested type (could be a base class of actual instance)
                 this.Singletons[modelType] = s;
+
+                // This one resolve the actual instance type.
+                this.Singletons[s.GetType()] = s;
+
+                // This once resolve the interface.
+                this.Singletons[typeof(ISingletonModel)] = s;
                 return s;
             }
             else if (modelType.IsAssignableFrom(typeof(SingletonDependentModel)))
             {
-                return new SingletonDependentModel(GetInstance<SingletonModel>());
+                return new SingletonDependentModel(GetInstance<ISingletonModel>());
             }
             else if (modelType.IsAssignableFrom(typeof(ResolveMyselfLater)))
             {
